@@ -1,4 +1,5 @@
-from flask import Flask, request, redirect, url_for
+# flask_app.py
+from flask import Flask, request
 from pymongo import MongoClient
 from spotipy.oauth2 import SpotifyOAuth
 import os
@@ -50,7 +51,6 @@ def callback():
                 upsert=True
             )
             return "You have successfully logged in to Spotify! You can return to Telegram now."
-
     except Exception as e:
         logging.error(f"Error during OAuth callback: {e}")
         return f"Failed to get the token: {e}", 400
