@@ -1,4 +1,3 @@
-# flask_app.py
 from flask import Flask, request
 from pymongo import MongoClient
 from spotipy.oauth2 import SpotifyOAuth
@@ -58,4 +57,5 @@ def callback():
     return "Failed to get the token", 400
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
